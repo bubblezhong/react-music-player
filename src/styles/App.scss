@@ -1,0 +1,203 @@
+/* Base Application Styles */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+$body-bg: #111;
+html,body{
+  height: 100%;
+}
+
+body{
+  background-color: $body-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font: 16px "微软雅黑";
+}
+/*主要设置播放器的大小、背景颜色、定位等信息*/
+$player-bg: lighten($body-bg, 10%);
+$player-w: 375px;
+$player-h: 550px;
+
+.player{
+  width: $player-w;
+  height: $player-h;
+  background-color: $player-bg;
+  border-radius: 10px;
+  position: relative;
+}
+.player{
+  .header{
+    padding: 15px 0;
+    text-align: center;
+  }
+}
+.player{
+  .albumPic{
+    background-image: url(http://p3.music.126.net/SR9eFEjRB0NsscxN7-fHMw==/3344714372906000.jpg); //这里先放一张临时图片，用于看效果，编写完成后，把这条属性删除即可
+    background-size: cover;
+    width: $player-w * 0.72;
+    height: $player-w * 0.72;
+    margin: auto;
+    border-radius: 10px;
+  }
+}
+.player{
+  .trackInfo{
+    text-align: center;
+    padding: 20px 0 15px;
+    font-size: 14px;
+    white-space: nowrap;
+
+    .name{
+      font-size: 24px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  }
+}
+.player{
+  .progress{
+    width: 30%;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom , transparent, #0099FF); //背景采用从上到下的线性渐变
+    //transparent黑色透明
+    //background-color: beige;
+    //background: linear-gradient(to bottom right, red , blue);
+    border-bottom-left-radius: 10px;
+
+    border-bottom-right-radius: 10px;
+    opacity: .4;
+  }
+}
+.player{
+  .controls{
+    /*//位置方面不用再额外设置了，按照对上面的设置，当前控制区的位置正好*/
+    position: relative;
+
+    /*//播放按钮同样采用flex布局，用于对内部的网络字体按钮垂直居中*/
+    .play{
+      cursor: pointer;
+      width: 80px;
+      height: 80px;
+      //border: 2px solid #ccc;
+      //border-radius: 50%;
+      /*//加个圆框*/
+      margin: auto;
+      display: flex;
+      align-items:center;
+      justify-content:center;
+      color: #fff;
+      font-size: 35px;
+
+      &:hover{
+        font-size: 40px;
+        /*鼠标经过变大字体*/
+      }
+      //在i标签内容的后面
+      .icon-play{
+
+        width: 80px;
+        height: 80px;
+        background: url("../images/play.png") no-repeat;
+
+      };
+      .icon-pause{
+        width: 80px;
+        height: 80px;
+        background: url("../images/pause.png") no-repeat;
+      }
+    }
+
+    /*//上、下一曲 共用样式*/
+    .btn{
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    font-size: 30px;
+
+    &:hover{
+      font-size: 32px;
+    }
+  }
+
+    /*//设置一下按钮位置*/
+    .previous{
+      .btn{
+        left: 50px;
+      }
+      .icon-previous{
+        height: 60px;
+        width: 60px;
+        background: url("../images/previous.png");
+      }
+    }
+
+    .next{
+      .icon-next{
+        width: 60px;
+        height: 60px;
+       background: url("../images/next.png");
+      }
+      .btn{
+        right: 50px;
+      }
+
+    }
+  }
+}
+.player{
+  .time{
+    width: $player-w - 40px;
+    /*//计算pdding后的宽度，可自行计算*/
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+    /*//两端分布*/
+  }
+}
