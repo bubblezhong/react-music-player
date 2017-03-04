@@ -35,7 +35,7 @@ class Time extends Component {
 render() {
     return(
   <div className="time">
-    <div className="current">{this.props.currentTime}</div>
+    <div className="current">{this.timeConvert(this.props.currentTime)}</div>
     <div className="total">{this.timeConvert(this.props.currentTotalTime)}</div>
   </div>
     )

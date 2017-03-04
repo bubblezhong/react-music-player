@@ -55,6 +55,8 @@ class App extends React.Component {
   next(){
     if(this.state.currentTrackIndex+1 >= this.state.currentTrackLen){
       alert("已经没有下一首了");
+      // this.setState({currentTrackIndex: 0});
+      return false
     }else {
       this.setState({currentTrackIndex: this.state.currentTrackIndex+1},()=>{
         this.updatePlayStatus();
@@ -123,6 +125,7 @@ App.defaultProps = {
         "name": "热门华语234",
         "picUrl": "http://p4.music.126.net/tHAfnugCElS93EDp5cHLIw==/8909342719897560.jpg",
       },
+      // "duration": 295575,
       "duration": 295575,
       "mp3Url": "http://m2.music.126.net/rnq_W32zFX_utQbBhE0xkg==/8934631487358481.mp3"
     }
